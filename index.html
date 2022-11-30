@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <!--fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/styles.css">
   <script src="script/script.js" defer></script>
   <title>Frontend Mentor | Tip calculator app</title>
@@ -18,43 +24,68 @@
   <main>
     <form action="#">
       <div class="input">
-        <div>
+        <div class="bill">
           <label for="bill">Bill</label>
           <input type="tel" 
                  name="bill" 
                  id="bill"
+                 class="pd cl"
                  placeholder="0">
           <img src="images/icon-dollar.svg" alt="">
         </div>
 
-        <fieldset>
+        <fieldset class="select">
           <legend>Select Tip %</legend>
-          <input type="text" readonly placeholder="5%" data-value="5">
-          <input type="text" readonly placeholder="10%" data-value="5">
-          <input type="text" readonly placeholder="15%" data-value="5">
-          <input type="text" readonly placeholder="25%" data-value="5">
-          <input type="text" readonly placeholder="50%" data-value="5">
-          <input type="tel" readonly placeholder="custom">
+          <div class="select-tip">
+            <input type="text" 
+                 placeholder="5%" 
+                 data-value="5" 
+                 class="pd" readonly>
+
+            <input type="text" 
+                  placeholder="10%" 
+                  data-value="5"
+                  class="pd" readonly>
+
+            <input type="text" 
+                  placeholder="15%" 
+                  data-value="5" 
+                  class="pd" readonly>
+
+            <input type="text" 
+                  placeholder="25%" 
+                  data-value="5" 
+                  class="pd" readonly>
+
+            <input type="text" 
+                  placeholder="50%" 
+                  data-value="5" 
+                  class="pd" readonly>
+
+            <input type="tel" placeholder="Custom" class="pd custom">
+          </div>
         </fieldset>
         
-        <div>
+        <div class="people">
           <label for="people">Number of People</label>
-          <input type="tel" name="number-of-people" id="people">
+          <input type="tel" name="number-of-people" id="people" class="pd cl">
           <img src="images/icon-person.svg" alt="">
         </div>
       </div>
       
       <div class="result">
         <div class="result__amount">
-          <span>Tip Amount<br>/ person</span>
-          <span>$0.00</span>
+          <div><span>Tip Amount</span><br>/ person</div>
+          <output>$0.00</output>
         </div>
+
         <div class="result__total">
-          <span>Total<br>/ person</span>
-          <span>$0.00</span>
+          <div><span>Total</span><br>/ person</div>
+          <output>$0.00</output>
         </div>
+
         <div>
-          <button class="reset">reset</button>
+          <button type="reset">reset</button>
         </div>
       </div>
     </form>

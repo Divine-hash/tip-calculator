@@ -1,0 +1,235 @@
+:root {
+  /*primary*/
+  --strong-cyan: hsl(172, 67%, 45%);
+  
+  /*neutral*/
+  --very-dark-cyan: hsl(183, 100%, 15%);
+  --dark-grayish-cyan: hsl(186, 14%, 43%);
+  --grayish-cyan: hsl(184, 14%, 56%);
+  --light-grayish-cyan: hsl(185, 41%, 84%);
+  --very-light-grayish-cyan: hsl(189, 41%, 97%);
+  --white: hsl(0, 0%, 100%);
+}
+
+
+
+
+/*
+=============================
+  GlOBAL STYLES
+=============================
+*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Space Mono', monospace;
+  background: var(--light-grayish-cyan);
+  width: 100%;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+fieldset {
+  border: none;
+}
+
+label,
+legend {
+  color: var(--dark-grayish-cyan);
+  font-weight: 700;
+}
+
+
+/*
+=============================
+  UTILITY STYLES
+=============================
+*/
+
+.pd {
+  padding: 10px 8px;
+}
+
+.cl {
+  background: var(--very-light-grayish-cyan);
+}
+
+/*
+=============================
+  HEADER
+=============================
+*/
+.logo {
+  padding: 50px;
+  display: grid;
+  place-content: center;
+}
+
+
+
+
+/*
+=============================
+  FORM STYLES
+=============================
+*/
+form {
+  background: var(--white);
+  width: 100%;
+  height: 100%;
+  border-radius: 20px 20px 0 0;
+  padding: 20px;
+}
+
+form input {
+  display: block;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.bill,
+.people {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.bill input,
+.people input {
+  width: 100%;
+  direction: rtl;
+  color: var(--very-dark-cyan);
+  font-size: 1.25rem;
+}
+
+.bill input::placeholder,
+.people input::placeholder {
+  color: var(--grayish-cyan);
+}
+
+
+
+.bill img,
+.people img {
+  position: absolute;
+  top: 48px;
+  left: 8px;
+}
+
+.select legend{
+  margin-bottom: 15px;
+}
+
+.select-tip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-auto-rows: auto;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.select-tip input {
+  background: var(--very-dark-cyan);
+  color: var(--white);
+  font-size: 1.25rem;
+}
+
+
+.select-tip input::placeholder {
+  color: var(--white);
+  text-align: center;
+  font-weight: 700;
+}
+
+.select-tip .custom {
+  background: var(--very-light-grayish-cyan);
+  color: var(--grayish-cyan);
+  direction: rtl;
+}
+
+.select-tip .custom::placeholder {
+  color: var(--grayish-cyan);
+}
+
+
+
+
+/*
+=============================
+  FORM RESULT SECTION
+=============================
+*/
+
+.result {
+  background: var(--very-dark-cyan);
+  border-radius: 10px;
+  padding: 40px 15px 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.result__amount,
+.result__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--dark-grayish-cyan);
+}
+
+.result div + div {
+  margin-bottom: 20px;
+}
+
+.result span {
+  color: var(--white);
+}
+
+.result output {
+  color: var(--strong-cyan);
+  font-size: 2.5rem;
+}
+
+.result button {
+  width: 100%;
+  font-size: 1.25rem;
+  padding: 8px;
+  background: var(--strong-cyan);
+  text-transform: uppercase;
+  color: var(--very-dark-cyan);
+  border: none;
+  border-radius: 5px;
+}
+
+.result div:last-child {
+  margin-top: auto;
+}
+
+@media screen and (min-width: 960px) {
+  form {
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template: 1fr / repeat(2, 1fr);
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 200px;
+    border-radius: 20px;
+    padding: 30px;
+  }
+
+  .result {
+    padding: 40px 30px 50px;
+  }
+}
