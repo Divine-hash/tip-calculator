@@ -47,19 +47,8 @@ legend {
 }
 
 
-/*
-=============================
-  UTILITY STYLES
-=============================
-*/
 
-.pd {
-  padding: 10px 8px;
-}
 
-.cl {
-  background: var(--very-light-grayish-cyan);
-}
 
 /*
 =============================
@@ -110,16 +99,21 @@ form label {
 .people input {
   width: 100%;
   direction: rtl;
+  background: var(--very-light-grayish-cyan);
   color: var(--very-dark-cyan);
   font-size: 1.25rem;
+  padding: 10px 8px;
+}
+
+.bill input:focus,
+.people input:focus {
+  border: 2px solid var(--strong-cyan);
 }
 
 .bill input::placeholder,
 .people input::placeholder {
   color: var(--grayish-cyan);
 }
-
-
 
 .bill img,
 .people img {
@@ -144,24 +138,30 @@ form label {
   background: var(--very-dark-cyan);
   color: var(--white);
   font-size: 1.25rem;
+  padding: 10px 8px;
+  text-align: center;
 }
 
+.select-tip input:active {
+  background: var(--strong-cyan);
+}
 
-.select-tip input::placeholder {
-  color: var(--white);
+.select-tip input:last-child {
+  background: var(--very-light-grayish-cyan);
+  color: var(--very-dark-cyan);
+  direction: rtl;
+  text-align: right;
+}
+
+.select-tip input:last-child:focus {
+  border: 2px solid var(--strong-cyan);
+}
+
+.select-tip input:last-child::placeholder {
   text-align: center;
   font-weight: 700;
 }
 
-.select-tip .custom {
-  background: var(--very-light-grayish-cyan);
-  color: var(--grayish-cyan);
-  direction: rtl;
-}
-
-.select-tip .custom::placeholder {
-  color: var(--grayish-cyan);
-}
 
 
 
@@ -212,6 +212,9 @@ form label {
   border-radius: 5px;
 }
 
+.result button:active {
+  background: var(--light-grayish-cyan);
+}
 .result div:last-child {
   margin-top: auto;
 }
