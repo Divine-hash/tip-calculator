@@ -57,6 +57,8 @@ function onClick(e) {
       }
     }
 
+    amount.textContent = '$0.00'
+    total.textContent = '$0.00';
   }
 
   const tip = e.target.closest('#tip');
