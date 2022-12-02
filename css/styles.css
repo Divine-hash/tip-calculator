@@ -98,7 +98,7 @@ form label {
 .bill input,
 .people input {
   width: 100%;
-  direction: rtl;
+  text-align: right;
   background: var(--very-light-grayish-cyan);
   color: var(--very-dark-cyan);
   font-size: 1.25rem;
@@ -108,6 +108,7 @@ form label {
 .bill input:focus,
 .people input:focus {
   border: 2px solid var(--strong-cyan);
+  padding: 8px;
 }
 
 .bill input::placeholder,
@@ -122,13 +123,17 @@ form label {
   left: 8px;
 }
 
+.people p {
+  display: none;
+}
+
 .select legend{
   margin-bottom: 15px;
 }
 
 .select-tip {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-auto-rows: auto;
   gap: 15px;
   margin-bottom: 30px;
@@ -149,12 +154,12 @@ form label {
 .select-tip input:last-child {
   background: var(--very-light-grayish-cyan);
   color: var(--very-dark-cyan);
-  direction: rtl;
   text-align: right;
 }
 
 .select-tip input:last-child:focus {
   border: 2px solid var(--strong-cyan);
+  padding: 8px;
 }
 
 .select-tip input:last-child::placeholder {
@@ -192,6 +197,11 @@ form label {
   margin-bottom: 20px;
 }
 
+.result div:last-child {
+  display: flex;
+  gap: 10px;
+}
+
 .result span {
   color: var(--white);
 }
@@ -202,7 +212,7 @@ form label {
 }
 
 .result button {
-  width: 100%;
+  width: 50%;
   font-size: 1.25rem;
   padding: 8px;
   background: var(--strong-cyan);
@@ -219,9 +229,39 @@ form label {
   margin-top: auto;
 }
 
+
+
+/*
+=============================
+  JAVASCRIPT ACTIVE STATES
+=============================
+*/
+.invalid {
+  color: red;
+}
+
+.invalid div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.invalid p {
+  color: red;
+  display: block;
+}
+
+.invalid input,
+.invalid input:focus {
+  border: 2px solid red;
+}
+
+
 @media screen and (min-width: 960px) {
+  body {
+    height: 100vh;
+  }
   form {
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
     display: grid;
     grid-template: 1fr / repeat(2, 1fr);

@@ -29,11 +29,13 @@
           <input type="tel" 
                  name="bill" 
                  id="bill"
-                 placeholder="0">
+                 placeholder="0"
+                 data-period="false"
+                 autocomplete="off">
           <img src="images/icon-dollar.svg" alt="">
         </div>
 
-        <fieldset class="select">
+        <fieldset class="select" id="tip">
           <legend>Select Tip %</legend>
           <div class="select-tip">
             <input type="text" value="5%" readonly>
@@ -41,14 +43,17 @@
             <input type="text" value="15%" readonly>
             <input type="text" value="25%" readonly>
             <input type="text" value="50%" readonly>
-            <input type="tel" placeholder="Custom">
+            <input type="tel" placeholder="Custom" name="custom" data-period="false" autocomplete="off">
           </div>
           
         </fieldset>
         
         <div class="people">
-          <label for="people">Number of People</label>
-          <input type="tel" name="number-of-people" id="people">
+          <div>
+            <label for="people">Number of People</label>
+            <p>Can't be zero</p>
+          </div>
+          <input type="tel" name="people" id="people" placeholder="0" data-period="false" autocomplete="off">
           <img src="images/icon-person.svg" alt="">
         </div>
       </div>
@@ -56,16 +61,17 @@
       <div class="result">
         <div class="result__amount">
           <div><span>Tip Amount</span><br>/ person</div>
-          <output>$0.00</output>
+          <output class="amount">$0.00</output>
         </div>
 
         <div class="result__total">
-          <div><span>Total</span><br>/ person</div>
-          <output>$0.00</output>
+          <div><span>Grand Total</span><br>/ person</div>
+          <output class="total">$0.00</output>
         </div>
 
         <div>
           <button type="reset">reset</button>
+          <button type="button">Calculate</button>
         </div>
       </div>
     </form>
