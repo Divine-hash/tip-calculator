@@ -147,6 +147,10 @@ form label {
   text-align: center;
 }
 
+.select-tip input:not([name="custom"]) {
+  cursor: pointer;
+}
+
 .select-tip input:active {
   background: var(--strong-cyan);
 }
@@ -230,6 +234,54 @@ form label {
 }
 
 
+
+
+
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--strong-cyan);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 1.5s, visibility 1.5s;
+}
+
+.loader::before {
+  content: "";
+  width: 50px;
+  height: 50px;
+  border: 8px solid var(--white);
+  border-top: 10px solid var(--very-dark-cyan);
+  border-radius: 50%;
+  animation: loader 1s ease infinite;
+}
+
+.loader::after {
+  content: "Loading...";
+  color: var(--white);
+}
+
+.loader--hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 /*
 =============================

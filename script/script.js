@@ -1,14 +1,28 @@
 const form = document.querySelector('form');
 const total = document.querySelector('.total');
 const amount = document.querySelector('.amount');
+const obj = {};
 
+
+window.addEventListener('load', loader);
+form.addEventListener('keydown', onKeyDown);
 form.addEventListener('input', onInput);
 form.addEventListener('click', onClick);
 
 
-const obj = {};
+function loader() {
+  const loader = document.querySelector('.loader');
+  setTimeout(() => {
+    loader.classList.add('loader--hidden');
+  }, 2000);
 
-form.onkeydown = function(e) {
+  document.addEventListener('transitionend', () => {
+    loader.remove();
+  });
+}
+
+
+function onKeyDown(e) {
   if (e.target.dataset.period == undefined) return;
 
   if ( !isFinite(e.key) && e.key !== "." && 
@@ -26,9 +40,10 @@ form.onkeydown = function(e) {
   }
 }
 
+
 function onInput(e) {
   if (e.target.dataset.period == undefined) return;
-  let div = e.target.closest('div');
+  const div = e.target.closest('div');
   
   if (!e.target.value) {
     e.target.dataset.period = false;
@@ -54,9 +69,13 @@ function onClick(e) {
     for (let input of form.elements) {
       if (input.dataset.period !== undefined) {
         input.dataset.period = false;
+        input.closest('div').classList.remove('invalid');
       }
     }
 
+    form.querySelector('legend').className = '';
+
+    obj.tip = 0;
     amount.textContent = '$0.00'
     total.textContent = '$0.00';
   }
@@ -72,11 +91,12 @@ function onClick(e) {
   }
 }
 
-function calculate() {
-  let people = document.querySelector('#people');
-  let tip = document.querySelector('#tip').firstElementChild;
 
-  let pdiv = people.closest('div');
+function calculate() {
+  const people = document.querySelector('#people');
+  const tip = document.querySelector('#tip').firstElementChild;
+
+  const pdiv = people.closest('div');
 
   if (!obj.tip) tip.className = 'invalid';
 
@@ -87,8 +107,8 @@ function calculate() {
     return;
   }
 
-  let amountPerPerson = (obj.bill * (obj.tip / 100)) / obj.people;
-  let grandTotal = (obj.bill + (obj.bill * (obj.tip / 100))) / obj.people;
+  const amountPerPerson = (obj.bill * (obj.tip / 100)) / obj.people;
+  const grandTotal = (obj.bill + (obj.bill * (obj.tip / 100))) / obj.people;
   amount.textContent = '$' + amountPerPerson.toFixed(2);
   total.textContent = '$' + grandTotal.toFixed(2);
 }
