@@ -28,7 +28,7 @@
           <label for="bill">Bill</label>
           <input type="tel" 
                  name="bill" 
-                 id="bill"
+                 data-name="bill"
                  placeholder="0"
                  autocomplete="off">
           <img src="images/icon-dollar.svg" alt="">
@@ -38,25 +38,27 @@
           <h2 class="tip__heading">Select Tip %</h2>
           <ul class="tip__list">
             <li>
-              <input type="buttn" value="5%" class="tip__button">
+              <input type="button" value="5%" class="tip__button" data-name="tip">
             </li>
             <li>
-              <input type="buttn" value="10%" class="tip__button">
+              <input type="button" value="10%" class="tip__button" data-name="tip">
             </li>
             <li>
-              <input type="buttn" value="15%" class="tip__button">
+              <input type="button" value="15%" class="tip__button" data-name="tip">
             </li>
             <li>
-              <input type="buttn" value="25%" class="tip__button">
+              <input type="button" value="25%" class="tip__button" data-name="tip">
             </li>
             <li>
-              <input type="buttn" value="50%" class="tip__button">
+              <input type="button" value="50%" class="tip__button" data-name="tip">
             </li>
             <li>
               <input type="tel" 
-                    name="custom" 
+                    name="custom"
+                    data-name="tip" 
                     placeholder="custom" 
-                    class="tip__input">
+                    class="tip__input"
+                    autocomplete="off">
             </li>
           </ul>
         </div>
@@ -68,7 +70,7 @@
           </div>
           <input type="tel" 
                  name="people" 
-                 id="people" 
+                 data-name="people" 
                  placeholder="0" 
                  autocomplete="off">
           <img src="images/icon-person.svg" alt="">
@@ -86,9 +88,9 @@
           <output class="total">$0.00</output>
         </div>
 
-        <div>
-          <button type="reset">reset</button>
-          <button type="button">Calculate</button>
+        <div class="buttons">
+          <button type="reset" class="reset">reset</button>
+          <button type="button" class="calc">Calculate</button>
         </div>
       </div>
     </form>

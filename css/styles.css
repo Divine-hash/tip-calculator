@@ -155,10 +155,6 @@ form label {
   background: var(--very-dark-cyan);
 }
 
-.tip__input {
-  background: var(--very-light-grayish-cyan);
-}
-
 .tip__button,
 .tip__input {
   width: 100%;
@@ -166,6 +162,20 @@ form label {
   padding: 8px 5px;
   font-size: 1.25rem;
   font-weight: 700;
+}
+
+.tip__button:active {
+  background: var(--strong-cyan);
+}
+
+.tip__input {
+  background: var(--very-light-grayish-cyan);
+  text-align: right;
+  color: var(--very-dark-cyan);
+}
+
+.tip__input::placeholder {
+  text-align: center;
 }
 
 
@@ -289,22 +299,23 @@ form label {
   JAVASCRIPT ACTIVE STATES
 =============================
 */
-.invalid {
+.invalid label,
+.invalid h2{
   color: red;
 }
 
-.invalid div {
+.people.invalid div {
   display: flex;
   justify-content: space-between;
 }
 
-.invalid p {
+.people.invalid p {
   color: red;
   display: block;
 }
 
-.invalid input,
-.invalid input:focus {
+.people.invalid input,
+.people.invalid input:focus {
   border: 2px solid red;
 }
 

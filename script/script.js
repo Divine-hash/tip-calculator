@@ -1,114 +1,86 @@
+// window.addEventListener('load', loader);
+
+
+
+// function loader() {
+//   const loader = document.querySelector('.loader');
+//   setTimeout(() => {
+//     loader.classList.add('loader--hidden');
+//   }, 2000);
+
+//   document.addEventListener('transitionend', () => {
+//     loader.remove();
+//   });
+// }
+
 const form = document.querySelector('form');
-const total = document.querySelector('.total');
+const tip = document.querySelector('.tip');
+const people = document.querySelector('.people');
+const bill = document.querySelector('.bill');
+const finishButtons = document.querySelector('.buttons');
 const amount = document.querySelector('.amount');
-const obj = {};
+const total = document.querySelector('.total');
 
+const values = {
+  bill: null,
+  tip: null,
+  people: null
+};
 
-window.addEventListener('load', loader);
-form.addEventListener('keydown', onKeyDown);
-form.addEventListener('input', onInput);
-form.addEventListener('click', onClick);
-
-
-function loader() {
-  const loader = document.querySelector('.loader');
-  setTimeout(() => {
-    loader.classList.add('loader--hidden');
-  }, 2000);
-
-  document.addEventListener('transitionend', () => {
-    loader.remove();
-  });
+form.oninput = function(event) {
+  const target = event.target;
+  inputNumOnly(target);
+  makeValid(target);
+  values[target.dataset.name] = +target.value || null; 
 }
 
-
-function onKeyDown(e) {
-  if (e.target.dataset.period == undefined) return;
-
-  if ( !isFinite(e.key) && e.key !== "." && 
-    e.code !== 'Backspace') {
-    e.preventDefault();
-  }
-
-  if (e.key == '.' && e.target.dataset.period == 'true') {
-    e.preventDefault();
-    return;
-  }
-
-  if (e.key == '.') {
-    e.target.dataset.period = true;
-  }
+tip.onclick = function(event) {
+  const target = event.target;
+  makeValid(target);
+  if (target.className !== 'tip__button') return;
+  values[target.dataset.name] = parseInt(target.value) || null;
 }
 
+finishButtons.onclick = function(event) {
+  if (event.target.className == 'calc') {
+    if (!values.people) people.classList.add('invalid');
+    if (!values.tip) tip.classList.add('invalid');
+    if (!values.bill) bill.classList.add('invalid');
+    calculate();
+  } else {
 
-function onInput(e) {
-  if (e.target.dataset.period == undefined) return;
-  const div = e.target.closest('div');
-  
-  if (!e.target.value) {
-    e.target.dataset.period = false;
-  }
-
-  if (div.classList.contains('invalid')) {
-    e.target.closest('div').classList.remove('invalid');
-  }
-  
-  if (e.target.id) {
-    obj[e.target.id] = +e.target.value;
-  }
- 
-  if (e.target.name == 'custom') {
-    obj.tip = +e.target.value;
-  }
-}
-
-
-function onClick(e) {
-  if (e.target.type == 'reset') {
-    
-    for (let input of form.elements) {
-      if (input.dataset.period !== undefined) {
-        input.dataset.period = false;
-        input.closest('div').classList.remove('invalid');
-      }
+    for (let prop in values) {
+      values[prop] = null;
     }
 
-    form.querySelector('legend').className = '';
-
-    obj.tip = 0;
-    amount.textContent = '$0.00'
+    amount.textContent = '$0.00';
     total.textContent = '$0.00';
-  }
 
-  const tip = e.target.closest('#tip');
-  if (tip && e.target.name !== 'custom') {
-    obj.tip = parseInt(e.target.value);
-    e.target.closest('#tip').firstElementChild.className = '';
-  }
-  
-  if (e.target.type == 'button') {
-    calculate();
   }
 }
 
+function inputNumOnly(elem) {
+  const value = elem.value.replace(/[^0-9.]/g, '');
+  elem.value = value.replace(/(\.\d*)\.\d*/g, "$1");
+}
+
+function makeValid (elem) {
+  const check = elem.closest('div').classList.contains('invalid');
+  if (check) {
+    elem.closest('div').classList.remove('invalid');
+  }
+}
 
 function calculate() {
-  const people = document.querySelector('#people');
-  const tip = document.querySelector('#tip').firstElementChild;
-
-  const pdiv = people.closest('div');
-
-  if (!obj.tip) tip.className = 'invalid';
-
-  if (!obj.bill) return;
-  
-  if (!obj.people) {
-    pdiv.classList.add('invalid');
-    return;
+  for (let prop in values) {
+    if (!values[prop]) return;
   }
 
-  const amountPerPerson = (obj.bill * (obj.tip / 100)) / obj.people;
-  const grandTotal = (obj.bill + (obj.bill * (obj.tip / 100))) / obj.people;
-  amount.textContent = '$' + amountPerPerson.toFixed(2);
+  const {bill, tip, people} = values;
+  const percentTageOfBill = (bill * tip / 100);
+  const tipAmount = percentTageOfBill / people;
+  const grandTotal = (bill + percentTageOfBill) / people;
+  
+  amount.textContent = '$' + tipAmount.toFixed(2);
   total.textContent = '$' + grandTotal.toFixed(2);
 }
