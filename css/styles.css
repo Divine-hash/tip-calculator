@@ -40,10 +40,11 @@ fieldset {
   border: none;
 }
 
-label,
-legend {
+label, 
+.tip__heading {
   color: var(--dark-grayish-cyan);
   font-weight: 700;
+  font-size: 1rem;
 }
 
 
@@ -126,47 +127,44 @@ form label {
   display: none;
 }
 
-.select legend{
-  margin-bottom: 15px;
-}
 
-.select-tip {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  grid-auto-rows: auto;
-  gap: 15px;
+
+
+/*
+=============================
+  TIP SECTION
+=============================
+*/
+.tip {
   margin-bottom: 30px;
 }
 
-.select-tip input {
-  background: var(--very-dark-cyan);
+.tip__heading {
+  margin-bottom: 8px;
+}
+
+.tip__list {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 15px;
+}
+
+.tip__button {
   color: var(--white);
-  font-size: 1.25rem;
-  padding: 10px 8px;
-  text-align: center;
+  background: var(--very-dark-cyan);
 }
 
-.select-tip input:not([name="custom"]) {
-  cursor: pointer;
-}
-
-.select-tip input:active {
-  background: var(--strong-cyan);
-}
-
-.select-tip input:last-child {
+.tip__input {
   background: var(--very-light-grayish-cyan);
-  color: var(--very-dark-cyan);
-  text-align: right;
 }
 
-.select-tip input:last-child:focus {
-  border: 2px solid var(--strong-cyan);
-  padding: 8px;
-}
-
-.select-tip input:last-child::placeholder {
+.tip__button,
+.tip__input {
+  width: 100%;
   text-align: center;
+  padding: 8px 5px;
+  font-size: 1.25rem;
   font-weight: 700;
 }
 
