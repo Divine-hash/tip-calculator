@@ -299,7 +299,7 @@ form label {
   JAVASCRIPT ACTIVE STATES
 =============================
 */
-.invalid label,
+.invalid .bill__label,
 .invalid h2{
   color: red;
 }
