@@ -92,7 +92,7 @@ form label {
 .bill,
 .people {
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .bill input,
@@ -136,7 +136,7 @@ form label {
 =============================
 */
 .tip {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .tip__heading {
@@ -331,7 +331,7 @@ form label {
   body {
     height: 100vh;
   }
-  
+
   form {
     margin: 0 auto;
     display: grid;
