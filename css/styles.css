@@ -49,7 +49,6 @@ legend {
 
 
 
-
 /*
 =============================
   HEADER
@@ -174,13 +173,11 @@ form label {
 
 
 
-
 /*
 =============================
   FORM RESULT SECTION
 =============================
 */
-
 .result {
   background: var(--very-dark-cyan);
   border-radius: 10px;
@@ -236,7 +233,6 @@ form label {
 
 
 
-
 /*
 =============================
   LOADER
@@ -287,6 +283,9 @@ form label {
   }
 }
 
+
+
+
 /*
 =============================
   JAVASCRIPT ACTIVE STATES
@@ -312,6 +311,13 @@ form label {
 }
 
 
+
+
+/*
+=============================
+  MEDIA QUERYS
+=============================
+*/
 @media screen and (min-width: 960px) {
   body {
     height: 100vh;
