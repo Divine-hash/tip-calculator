@@ -266,7 +266,7 @@ form label {
   width: 50px;
   height: 50px;
   border: 8px solid var(--white);
-  border-top: 10px solid var(--very-dark-cyan);
+  border-top: 8px solid var(--very-dark-cyan);
   border-radius: 50%;
   animation: loader 1s ease infinite;
 }

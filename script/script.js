@@ -1,18 +1,3 @@
-// window.addEventListener('load', loader);
-
-
-
-// function loader() {
-//   const loader = document.querySelector('.loader');
-//   setTimeout(() => {
-//     loader.classList.add('loader--hidden');
-//   }, 2000);
-
-//   document.addEventListener('transitionend', () => {
-//     loader.remove();
-//   });
-// }
-
 const form = document.querySelector('form');
 const tip = document.querySelector('.tip');
 const people = document.querySelector('.people');
@@ -20,6 +5,8 @@ const bill = document.querySelector('.bill');
 const finishButtons = document.querySelector('.buttons');
 const amount = document.querySelector('.amount');
 const total = document.querySelector('.total');
+
+window.addEventListener('load', loader);
 
 const values = {
   bill: null,
@@ -57,6 +44,17 @@ finishButtons.onclick = function(event) {
     total.textContent = '$0.00';
 
   }
+}
+
+function loader() {
+  const loader = document.querySelector('.loader');
+  setTimeout(() => {
+    loader.classList.add('loader--hidden');
+  }, 2000);
+
+  document.addEventListener('transitionend', () => {
+    loader.remove();
+  });
 }
 
 function inputNumOnly(elem) {
