@@ -30,30 +30,47 @@
                  name="bill" 
                  id="bill"
                  placeholder="0"
-                 data-period="false"
                  autocomplete="off">
           <img src="images/icon-dollar.svg" alt="">
         </div>
 
-        <fieldset class="select" id="tip">
-          <legend>Select Tip %</legend>
-          <div class="select-tip">
-            <input type="text" value="5%" readonly>
-            <input type="text" value="10%" readonly>
-            <input type="text" value="15%" readonly>
-            <input type="text" value="25%" readonly>
-            <input type="text" value="50%" readonly>
-            <input type="tel" placeholder="Custom" name="custom" data-period="false" autocomplete="off">
-          </div>
-          
-        </fieldset>
+        <div class="tip">
+          <h2 class="tip__heading">Select Tip %</h2>
+          <ul class="tip__list">
+            <li>
+              <input type="buttn" value="5%" class="tip__button">
+            </li>
+            <li>
+              <input type="buttn" value="10%" class="tip__button">
+            </li>
+            <li>
+              <input type="buttn" value="15%" class="tip__button">
+            </li>
+            <li>
+              <input type="buttn" value="25%" class="tip__button">
+            </li>
+            <li>
+              <input type="buttn" value="50%" class="tip__button">
+            </li>
+            <li>
+              <input type="tel" 
+                    name="custom" 
+                    placeholder="custom" 
+                    class="tip__input">
+            </li>
+          </ul>
+        </div>
         
         <div class="people">
           <div>
             <label for="people">Number of People</label>
             <p>Can't be zero</p>
           </div>
-          <input type="tel" name="people" id="people" placeholder="0" data-period="false" autocomplete="off">
+          <input type="tel" 
+                 name="people" 
+                 id="people" 
+                 placeholder="0" 
+                 autocomplete="off">
           <img src="images/icon-person.svg" alt="">
         </div>
       </div>
@@ -76,6 +93,6 @@
       </div>
     </form>
   </main>
-  <div class="loader"></div>
+  <!-- <div class="loader"></div> -->
 </body>
 </html>
